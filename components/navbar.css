@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ nav a, nav a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs-container {
+    margin: 20px 0px 10px 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.tab {
+    position: relative;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: black;
+    z-index: 10;
+    font-family: 'Nunito';
+    font-weight: 800;
+}
+
+.tab:nth-child(3) {
+    font-size: 25px;
+    font-family: 'Anton SC';
+}
+
+.cursor {
+    position: absolute;
+    height: 28px;
+    background-color: white;
+    border-radius: 9999px;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Spacing between icon and text */
+}
+
+nav i {
+    font-size: 1.5rem;
+    display: none; /* Icons visible by default */
+    opacity: 1;
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+/* Media Query: When screen width is less than 768px, hide the text and show icons */
+@media screen and (max-width: 900px) {
+    nav {
+        display: flex;
+        justify-content: center; /* Center nav items */
+    }
+    
+    .tabs-container {
+        display: flex;
+        justify-content: center; /* Center the tabs container */
+        margin: 10px auto; /* Center it horizontally */
+    }
+    
+    nav span {
+        display: none; /* Hide text */
+    }
+
+    nav i {
+        display: block; /* Ensure icons are shown */
+        font-weight: 900;
+        font-size: 1.7rem; /* Increase icon size for better visibility */
+        border: 2px solid black;
+    }
+
+    .tab {
+        margin: 0px;
+    }
+}
+
+/* Media Query: When screen width is greater than 768px, show text and hide icons */
+@media screen and (min-width: 900px) {
+    nav i {
+        display: none; /* Hide icons */
+    }
+
+    nav span {
+        display: inline; /* Show text */
+    }
+}
+
+@media screen and (max-width: 530px) {
+    nav {
+        display: flex;
+        justify-content: center; /* Center nav items */
+    }
+    
+    .tabs-container {
+        display: flex;
+        justify-content: center; /* Center the tabs container */
+        margin: 10px auto; /* Center it horizontally */
+        position: relative;
+    }
+}

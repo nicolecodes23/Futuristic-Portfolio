@@ -1,0 +1,344 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.renaissance-avatar-container {
+    position: relative;
+    margin: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(100, 100, 100, 0.2);
+    z-index: -2;
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, -90%);
+}
+
+.renaissance-avatar {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: transparent;
+    bottom: 35px;
+}
+
+.renaissance-avatar .face {
+    width: 150px;
+    height: 170px;
+    border-radius: 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: #FFDAB9;
+    border: 3px solid #F4A460;
+    display: flex;
+    justify-content: center;
+    z-index: 4;
+}
+
+.renaissance-avatar .face .brow {
+    width: 36px;
+    height: 5px;
+    background-color: #F4A460;
+    display: flex;
+    margin: 10px;
+    position: absolute;
+}
+
+.renaissance-avatar .brow-left {
+    top: 50px;
+    left: 13px;
+}
+
+.renaissance-avatar .brow-right {
+    top: 50px;
+    left: 74px;
+}
+
+
+.renaissance-avatar .face .eye {
+    background-color: #00BFFF;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: flex;
+    margin: 10px;
+    position: absolute;
+}
+
+.renaissance-avatar .eye-left {
+    top: 65px;
+    left: 25px;
+}
+
+.renaissance-avatar .eye-right {
+    top: 65px;
+    left: 86px;
+}
+
+/* Nose */
+.renaissance-avatar .face::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background-color: #FFDAB9;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    border-bottom: 5px solid #F4A460;
+    top: 70px;
+}
+
+/*Mouth*/
+.renaissance-avatar .face::after {
+    content: "";
+    position: absolute;
+    width: 29px;
+    height: 5px;
+    background-color: #F08080;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    border-bottom: 5px solid #F08080;
+    top: 125px;
+}
+
+/*Lips*/
+.renaissance-avatar .lips::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    border-radius: 50%;
+    top: 122px;
+    background-color: #F08080;
+}
+
+.renaissance-avatar .lips::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    border-radius: 50%;
+    top: 122px;
+    transform: translateX(-11px);
+    background-color: #F08080;
+}
+
+.renaissance-avatar .blush {
+    background-color: rgba(255, 192, 203, 0.5);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+}
+
+.renaissance-avatar .blush-left {
+    top: 95px;
+    left: 17px;
+}
+
+.renaissance-avatar .blush-right {
+    top: 95px;
+    right: 17px;
+}
+
+.renaissance-avatar .ears {
+    background-color: #FFDAB9;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 3;
+    border: 3px solid #F4A460;
+    ;
+}
+
+.renaissance-avatar .ear-left {
+    top: 100px;
+    left: 30px;
+}
+
+/*Earring*/
+.renaissance-avatar .ear-left::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gold;
+    top: 22px;
+    left: 7px;
+    z-index: 4;
+}
+
+.renaissance-avatar .ear-right {
+    top: 100px;
+    right: 30px;
+}
+
+.renaissance-avatar .ear-right::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gold;
+    top: 22px;
+    right: 7px;
+    z-index: 2;
+}
+
+/*Ear shadow*/
+.renaissance-avatar .ears::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(244, 164, 96, 0.3);
+    top: 5px;
+    left: 5px;
+}
+
+.renaissance-avatar .hair {
+    background-color: #FF7F50;
+    z-index: -1;
+    width: 170px;
+    height: 190px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    border-radius: 40px 40px 0 0;
+    position: absolute;
+}
+
+
+.renaissance-avatar .bangs {
+    position: absolute;
+    background-color: #FF7F50;
+    width: 73px;
+    height: 63px;
+    border-bottom-left-radius: 70px;
+    border-top-right-radius: 20px;
+    z-index: 5;
+}
+
+.renaissance-avatar .bangs-left {
+    transform: scaleX(-1);
+    top: 23px;
+    left: 55px;
+}
+
+.renaissance-avatar .bangs-right {
+    top: 23px;
+    right: 55px;
+}
+
+.renaissance-avatar .hairband {
+    position: absolute;
+    background-color: black;
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    background-color: #FF7F50;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    border-bottom: 10px solid black;
+    top: 27px;
+    left: 50px;
+    z-index: 6;
+    transform: scaleY(-1);
+}
+
+.renaissance-avatar .neck {
+    width: 50px;
+    height: 60px;
+    background-color: #FFDAB9;
+    position: absolute;
+    z-index: 3;
+    left: 100px;
+    border-left: 3px solid #F4A460;
+    border-right: 3px solid #F4A460;
+    ;
+}
+
+/*Dress*/
+.renaissance-avatar .dress {
+    position: absolute;
+    width: 152px;
+    height: 53px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    background-color: darkgreen;
+    z-index: 2;
+    top: 240px;
+    left: 50px;
+}
+
+/*Neck shadow*/
+.renaissance-avatar .neck::before {
+    content: "";
+    position: absolute;
+    width: 49px;
+    height: 14px;
+    background-color: rgba(244, 164, 96, 0.3);
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    top: 20px;
+}
+
+/*Body*/
+.renaissance-avatar .body {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 110px;
+    background-color: #FFDAB9;
+    border-left: 3px solid #F4A460;
+    border-top: 3px solid #F4A460;
+    transform: rotate(45deg);
+    z-index: 0;
+    top: 180px;
+    left: 60px;
+
+}
+
+/*Sleeves*/
+.renaissance-avatar .shirt {
+    border-radius: 50%;
+    width: 80px;
+    height: 40px;
+    background-color: white;
+    position: absolute;
+    z-index: 3;
+}
+
+.renaissance-avatar .shirt::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 80px;
+    height: 60px;
+    border-radius: 50%;
+    bottom: 30px;
+}
+
+.renaissance-avatar .shirt-left {
+    bottom: -10px;
+    left: 15px;
+    transform: rotate(40deg);
+}
+
+.renaissance-avatar .shirt-right {
+    transform: rotate(-40deg);
+    bottom: -10px;
+    right: 15px;
+}
