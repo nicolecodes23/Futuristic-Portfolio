@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--webpage title icon-->
+    <link rel="icon" type="image/x-icon" href="images/web-icon.png">
+    <!--navbar css found in components folder-->
+    <link rel="stylesheet" href="./components/navbar.css">
+    <!--specific avatar design found in componenets folder-->
+    <link rel="stylesheet" href="./components/renaissance-avatar.css">
+    <!--main css file for about page-->
+    <link rel="stylesheet" href="about.css">
+    <title>Portfolio About</title>
+</head>
+
+<body>
+    <header>
+        <!--navigation bar-->
+        <nav class="tabs-container">
+            <div class="tab"><a href="about.html"><i class='bx bx-info-circle'></i><span>About</span></a></div>
+            <div class="tab"><a href="new.html"><i class='bx bx-news'></i><span>Updates</span></a></div>
+            <div class="tab" id="Homepage"><a href="index.html"><i class='bx bx-home'></i><span>NICOLE</span></a></div>
+            <div class="tab"><a href="projects.html"><i class='bx bx-folder-open'></i><span>projects</span></a></div>
+            <div class="tab"><a href="contact.html"><i class='bx bx-envelope'></i><span>Contact</span></a></div>
+            <div class="cursor"></div>
+        </nav>
+    </header>
+    <!--main container containing all the content in this page-->
+    <div class="main-container">
+        <!--about me container that introduces self to audience-->
+        <div class="about-us-container">
+            <!--about me title-->
+            <h4>about me</h4>
+            <h2>Time Travelling is only for The Adventurers</h2>
+            <!--building renaissance avatar using pure css, different from main page as this is centered-->
+            <div class="renaissance-avatar-container centered">
+                <div class="renaissance-avatar">
+                    <div class="face">
+                        <div class="brow brow-left"></div>
+                        <div class="brow brow-right"></div>
+                        <div class="eye eye-left"></div>
+                        <div class="eye eye-right"></div>
+                        <div class="lips"></div>
+                        <div class="blush blush-left"></div>
+                        <div class="blush blush-right"></div>
+                    </div>
+                    <div class="ears ear-left"></div>
+                    <div class="ears ear-right"></div>
+                    <div class="hair"></div>
+                    <div class="bangs bangs-left"></div>
+                    <div class="bangs bangs-right"></div>
+                    <div class="hairband"></div>
+                    <div class="neck"></div>
+                    <div class="body"></div>
+                    <div class="shirt shirt-left"></div>
+                    <div class="shirt shirt-right"></div>
+                    <div class="dress"></div>
+                </div>
+            </div>
+            <!--short paragraph about me -->
+            <p class="about-para">Hi. My name is Nicole. I am an award-winning tour guide who specialises in time
+                travelling to the past. I
+                worked with schools and tourism industries. My role is to guide you through time , allowing you to
+                witness, engage and experience the past.</p>
+        </div>
+        <!--scrolling container with transition title-->
+        <div class="history-container">
+            <div class="scroll-container">
+                <!--transition title-->
+                <div class="title-container">
+                    <h3 class="scroll-title">How I got here</h3>
+                </div>
+                <!--text split up for transition-->
+                <div class="text-container">
+                    <ul>
+                        <li><span class="text text1">It all started</span></li>
+                        <li> <span class="text text2">when I </span></li>
+                        <li><span class="text text3">first took up </span></li>
+                        <li><span class="text text4">History...</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--sticky container that sticks while horizontal scrolling-->
+        <div class="sticky-parent-container">
+            <div class="sticky">
+                <div class="scroll-section">
+                    <!--each card represents a year-->
+                    <div class="scroll-card">
+                        <h1>1989</h1>
+                        <img id="gown" src="images/gown.png" alt="a black graduation gown">
+                        <p>Ever since I completed the last chapter of my history classes, I wanted to learn more. I
+                            started reseaching academic papers and
+                            historical archives to know more about particular eras. In 1989, I graduated from Harvard
+                            with a Bachelor with Honours in History and Computing. This was the start of my time
+                            travelling journey.</p>
+                    </div>
+                    <!--each card represents a year-->
+                    <div class="scroll-card">
+                        <h1>2010</h1>
+                        <img id="quantum" src="images/quantum.png" alt="quantum machine to create wormhole">
+                        <p>Using my knowledge in Quantum Computing, I attempted to simulate and manipulate quantum
+                            states
+                            that
+                            represent different points in space-time. Sophisticated quantum programming languages like
+                            Q#
+                            were used to access different timelines.The code calculates the exact energy levels, quantum
+                            states, and other parameters needed to "lock onto" a specific point in space-time</p>
+                    </div>
+                    <!--each card represents a year-->
+                    <div class="scroll-card">
+                        <h1>2017</h1>
+                        <img id="wormhole" src="images/wormhole.png" alt="wormhole to time travel">
+                        <p>Leveraging the quantum computer's output, the traveler uses a particle accelerator to
+                            generate the necessary conditions for a stable wormhole. This involves manipulating quantum
+                            fields to create a micro-wormhole, which can be expanded using exotic matter to a size large
+                            enough for human passage.</p>
+                    </div>
+                    <!--each card represents a year-->
+                    <div class="scroll-card">
+                        <h1>2025</h1>
+                        <img id="adventure" src="images/adventure.png" alt="adventure girl holding red flag">
+                        <p>We officially introduced the concept of Travelling through Time. Being the pioneer of this
+                            movement, I was the first ever tour guide for our journey to the past -- Renaissance Era.
+                        </p>
+                    </div>
+                    <!--each card represents a year-->
+                    <div class="scroll-card">
+                        <h1>2033</h1>
+                        <img id="lock" src="images/lock.png" alt="lock to show safety for cybersecurity">
+                        <p>As of now, we have time travelled to 9 different eras. The percentage of travellers being
+                            lost in time is as low as 5%. With the advancement of technologies, I am currently working
+                            with a cybersecurity team to include backup algorithms in the program that can recalibrate
+                            quantum states and shut down the wormhole safely.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./components/avatar.js"></script>
+    <script src="./components/navbar.js"></script>
+    <script src="about.js"></script>
+</body>
+
+</html>

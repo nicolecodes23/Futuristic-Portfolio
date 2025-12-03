@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--webpage title icon-->
+    <link rel="icon" type="image/x-icon" href="images/web-icon.png">
+    <!--navbar css found in components folder-->
+    <link rel="stylesheet" href="./components/navbar.css">
+    <!--main css file for contact page-->
+    <link rel="stylesheet" href="contact.css">
+    <title>Portfolio Contact</title>
+</head>
+
+<body>
+    <header>
+        <!--navigation bar-->
+        <nav class="tabs-container">
+            <div class="tab"><a href="about.html"><i class='bx bx-info-circle'></i><span>About</span></a></div>
+            <div class="tab"><a href="new.html"><i class='bx bx-news'></i><span>Updates</span></a></div>
+            <div class="tab" id="Homepage"><a href="index.html"><i class='bx bx-home'></i><span>NICOLE</span></a></div>
+            <div class="tab"><a href="projects.html"><i class='bx bx-folder-open'></i><span>projects</span></a></div>
+            <div class="tab"><a href="contact.html"><i class='bx bx-envelope'></i><span>Contact</span></a></div>
+            <div class="cursor"></div>
+        </nav>
+    </header>
+
+    <div class="body-wrapper">
+        <!--main container containing all content in content page-->
+        <div class="main-container">
+            <!--title for content page-->
+            <div class="title-container">
+                <ul>
+                    <!--list items used for transition-->
+                    <li><span class="text">Get In</span></li>
+                    <li><span class="text">Contact</span></li>
+                </ul>
+                <p>(no time machine requried)</p>
+            </div>
+            <!--bentro grid container design -->
+            <div class="bento-grid-container">
+                <!--bento grid 1: email-->
+                <div class="bento-item email">
+                    <!--inner bento content-->
+                    <div class="bento-content">
+                        <h3>Email</h3>
+                        <button><a href="contact.html">info@timetravel.com</a></button>
+                    </div>
+                </div>
+                <!--bento grid 2:call-->
+                <div class="bento-item call square">
+                    <div class="bento-content">
+                        <!--inner bento content-->
+                        <h3>Call</h3>
+                        <button><a href="contact.html"> +00 12 345 67 89</a></button>
+                    </div>
+                </div>
+                <!--bento grid 3: chatbot-->
+                <div class="bento-item chatbot">
+                    <!--incoming text box-->
+                    <ul class="chatbox">
+                        <li class="chat incoming">
+                            <span><img src="images/profile.jpg" alt="profile picture of adventure girl"
+                                    class="profile"></span>
+                            <p>want to work together? 👋🏻 looking for someone to chat? send me a text here</p>
+                        </li>
+                    </ul>
+                    <!--user input in chatbot-->
+                    <div class="chat-input">
+                        <textarea name="chat-input" placeholder="iMessage..." required accesskey="o"></textarea>
+                        <i class='bx bxs-up-arrow-circle send'></i>
+                    </div>
+                </div>
+                <!--bento grid 4: social platform-->
+                <div class="bento-item socials">
+                    <!--inner bento content-->
+                    <div class="bento-content">
+                        <h3>Go</h3>
+                        <button><i class='bx bxl-instagram-alt'></i></button>
+                        <button><i class='bx bxl-facebook-circle'></i></button>
+                        <button><i class='bx bxl-linkedin-square'></i></button>
+                        <button><i class='bx bxl-youtube'></i></button>
+                    </div>
+                </div>
+                <!--bento grid 5:wave-->
+                <div class="bento-item bye square">
+                    <div class="bento-content">
+                        <h3>👋🏻</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./components/navbar.js"></script>
+    <script src="contact.js"></script>
+</body>
+
+</html>

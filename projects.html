@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--webpage title icon-->
+    <link rel="icon" type="image/x-icon" href="images/web-icon.png">
+    <!--navbar css found in components folder-->
+    <link rel="stylesheet" href="./components/navbar.css">
+    <!--main css file for projects page-->
+    <link rel="stylesheet" href="projects.css">
+    <title>Portfolio Projects</title>
+</head>
+
+<body>
+    <header>
+        <!--navigation bar-->
+        <nav class="tabs-container">
+            <div class="tab"><a href="about.html"><i class='bx bx-info-circle'></i><span>About</span></a></div>
+            <div class="tab"><a href="new.html"><i class='bx bx-news'></i><span>Updates</span></a></div>
+            <div class="tab" id="Homepage"><a href="index.html"><i class='bx bx-home'></i><span>NICOLE</span></a></div>
+            <div class="tab"><a href="projects.html"><i class='bx bx-folder-open'></i><span>projects</span></a></div>
+            <div class="tab"><a href="contact.html"><i class='bx bx-envelope'></i><span>Contact</span></a></div>
+            <div class="cursor"></div>
+        </nav>
+    </header>
+
+    <div class="title-container">
+        <!--title container split into span for transition-->
+        <h1>
+            <span>S</span>
+            <span>h</span>
+            <span>o</span>
+            <span>w</span>
+            <span>c</span>
+            <span>a</span>
+            <span>s</span>
+            <span>e</span>
+        </h1>
+    </div>
+
+    <!--main container for project map-->
+    <main>
+        <h1 class="header">Projects & Awards</h1>
+
+
+        <div class="project-container">
+            <!--three columns for each project item to be dynamicall added using javascript-->
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+    </main>
+
+    <!--content inside each project item-->
+    <div class="content">
+        <!--image added dynamically using javascript-->
+        <img src="" alt="" class="content-img">
+        <!--when clicked a small section will pop up, this is info container-->
+        <div class="info-container">
+            <!--small section title-->
+            <div class="info-header"></div>
+            <!--small section paragraph-->
+            <div class="info-text"></div>
+            <!--small section infinite scrolling marquee-->
+            <div class="info-showcase">
+                <h3>Skills I gained: </h3>
+                <div class="slider" reverse="true" style="
+                    --width: 400px;
+                    --height: 400px;
+                    --quantity: 9;
+                ">
+                    <div class="list">
+                        <div class="skill" style="--position: 1"><img src="images/leadership.png"
+                                alt="a bottle with a label of 1 litre of leadership"></div>
+                        <div class="skill" style="--position: 2"><img src="images/develop.png"
+                                alt="a computer with screen of full stack developer"></div>
+                        <div class="skill" style="--position: 3"><img src="images/critical.png"
+                                alt="a jar with a brain juice inside"></div>
+                        <div class="skill" style="--position: 4"><img src="images/empathy.png"
+                                alt="a medical kit of empathy"></div>
+                        <div class="skill" style="--position: 5"><img src="images/knowledge.png"
+                                alt="a stack of history books"></div>
+                        <div class="skill" style="--position: 6"><img src="images/program.png" alt="a conical flask">
+                        </div>
+                        <div class="skill" style="--position: 7"><img src="images/creativity.png"
+                                alt="a slab of creativity butter"></div>
+                        <div class="skill" style="--position: 8"><img src="images/adapt.png" alt="a pair of gloves">
+                        </div>
+                        <div class="skill" style="--position: 9"><img src="images/speaking.png"
+                                alt="a lipstick for public speaking skill"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="close">Return</button>
+        </div>
+    </div>
+
+
+
+    <script src="./components/navbar.js"></script>
+    <!--main javascript file for project page, project.js is imported into here-->
+    <script src="project2.js" type="module"></script>
+</body>
+
+</html>

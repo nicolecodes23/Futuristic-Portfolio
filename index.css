@@ -1,0 +1,475 @@
+/*importing google fonts for this project*/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*colors stored in variables for easy access*/
+:root {
+    --brown-light:#EFDECD;
+    --brown-dark:#9F8170;
+    --red-light:#F4C2C2;
+    --red-dark:#AB4E52;
+    --yellow-light:#FAF8D4;
+    --yellow-dark:#ecd686;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--brown-light);
+}
+
+/*styling of music icon container*/
+.music-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    border: solid;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /*circle shape*/
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+/*styling music icon inside container */
+.music-container i {
+    font-size: 1.5rem;
+    color: var(--brown-dark);
+}
+
+/*main container that takes full screen and centered content */
+.main-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+    cursor: pointer;
+}
+
+/*general positioning for all titles*/
+.introduction {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    width: 800px;
+    height: fit-content;
+}
+
+/*styling for all h1 title for all poster */
+h1 {
+    font-size: 11rem;
+    text-align: center;
+    font-family: 'Anton SC';
+    letter-spacing: 0.2rem;
+    z-index: -1000;
+    line-height: 170px;
+}
+
+/*renaissance poster h1 styling*/
+.first-poster h1 {
+    color: var(--brown-dark);
+}
+
+/*chinese poster h1 styling*/
+.second-poster h1 {
+    color: var(--red-dark);
+}
+
+/*egyptian poster h1 styling*/
+.third-poster h1 {
+    color: var(--yellow-dark);
+}
+
+/*container holding all three posters */
+.poster-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*enables interaction*/
+    pointer-events: all;
+}
+
+/*renaissance poster styling*/
+.first-poster {
+    background-color: var(--brown-light);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/*chinese poster styling*/
+.second-poster {
+    background-color: var(--red-light);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*initially clipped to invisible to ensure not shown*/
+    clip-path: circle(0% at 50% 50%);
+}
+
+/*egyptian poster styling*/
+.third-poster {
+    background-color: var(--yellow-light);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*initially clipped to invisible to ensure not shown*/
+    clip-path: circle(0% at 50% 50%);
+}
+
+/*when poster given active class, then poster fully visible*/
+.poster.active {
+    z-index: 1;
+    clip-path: circle(100% at 50% 50%);
+}
+
+/*positioning painting frames on poster */
+.painting-container {
+    position: relative;
+    width: 150px;
+    height: 130px;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 38%;
+    left: 80%;
+    transform: translate(35%, -70%);
+    background-color: sienna;
+}
+
+/*container for placing image*/
+.img-container {
+    position: absolute;
+    width: 120px;
+    height: 90px;
+    border: 3px solid black;
+    overflow: hidden;
+}
+
+/*styling of image in painting frame*/
+.img-container img {
+    width: 100%;
+    height: 100%;
+    /*maintains aspect ration of img on poster*/
+    object-fit: cover;
+    object-position: center;
+}
+
+/*styling of painting frame using css*/
+.painting-frame {
+    position: absolute;
+    width: 8px;
+    height: 130px;
+    background-color: sienna;
+    left: 145px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-width: 3px 3px 3px 0;
+    border-style: solid;
+    border-color: black;
+}
+
+/*styling for renaissance poster left image*/
+.easel-container img {
+    position: absolute;
+    width: 780px;
+    height: 780px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    top: 10%;
+    left: 10%;
+    transform: translate(-34%, -8%);
+    z-index: -1;
+}
+
+/*styling for chinese poster left image*/
+.soldier-container img {
+    position: absolute;
+    width: 900px;
+    height: 920px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    top: 10%;
+    left: 10%;
+    transform: translate(-34%, -15%);
+    z-index: -1;
+}
+
+/*styling for egyptian poster left image */
+.mummy-container img {
+    position: absolute;
+    width: 800px;
+    height: 870px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    top: 13%;
+    left: 13%;
+    transform: translate(-34%, -15%);
+    z-index: -1;
+}
+
+/*styling for quick link container below all the posters*/
+.quick-link-container {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    position: absolute; 
+    bottom: -100vh; /* Initially place it below the screen */
+    transform: translateY(0); /* Initial state */
+    transition: transform 0.5s ease; /* Smooth transition */
+    z-index: 1; 
+}
+
+/*all the links placed in container */
+.link-container {
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    background-color: var(--brown-light);
+    padding: 2rem;
+}
+
+/*heading for each link*/
+.link-container h3 {
+    color: var(--brown-dark);
+    font-size: 3rem;
+    font-family: 'Anton SC';
+    display: flex;
+    justify-content: center;
+}
+
+/*wrapper for all links */
+.link-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 64rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*individual link styles*/
+.link {
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 2px solid var(--brown-dark);
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--brown-dark);
+    transition: color 0.5s, border-color 0.5s;
+}
+
+/*hover effect for link to change color*/
+.link:hover {
+    color: var(--brown-dark);
+    border-color: var(--brown-dark);
+}
+
+/*styling of heading inside the link*/
+.link-heading {
+    font-family: 'Anton SC';
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/*styling subheading inside the link*/
+.link-subheading {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Nunito';
+}
+
+/*transformation to move link to the left*/
+.link:hover .link-heading {
+    transform: translateX(-16px);
+    transition: transform 0.5s;
+}
+
+/*image inside link initially hidden*/
+.link img {
+    position: absolute;
+    height: 6rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+}
+
+/* image inside link tilted and expanded on hover*/
+.link:hover img {
+    transform: scale(1) rotate(12.5deg);
+    opacity: 1;
+}
+
+/*icon styling for each link*/
+.link .icon {
+    font-size: 2rem;
+    color: black;
+    font-weight: 900;
+    position: relative;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+}
+
+/*move icon for transformation */
+.link:hover .icon {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+/*media query for tablet devices*/
+@media screen and (max-width: 1024px){
+    /*not showing paingitng frame and avatar due to overcrowding */
+    .renaissance-avatar-container, .painting-container, .chinese-avatar-container, .mummy-avatar-container{
+        display: none;
+    }
+
+    /*makes left image of individual posters smaller */
+    .easel-container img {
+        width: 700px;
+        height:700px;
+        top: 10%;
+        left: 10%;
+    }
+
+    .mummy-container img {
+        width: 750px;
+        height: 790px;
+        top: 10%;
+        left: 10%;
+    }
+
+    .soldier-container img {
+        width: 800px;
+        height: 820px;
+        top: 10%;
+        left: 10%;
+    }
+
+    /*adjusting poster title sizing and spacing*/
+    h1 
+    { font-size: 9rem;
+        letter-spacing: 0.1rem;
+        line-height: 150px; 
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /*smaller font size for quick link titles*/
+    .link-container h3 {
+        font-size: 2.5rem;
+    }
+
+    /* Adjust link layout for smaller screens spreading evenly */
+    .link-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; /* Ensures even spacing */
+        height: 100%; /* Adjust this if needed based on how much space you want between the links */
+    }
+
+    .link {
+        width: 100%;
+        margin: 0; 
+        padding: 1.5rem 0;
+        text-align: left;
+    }
+
+}
+
+/*media query for mobile devices*/
+@media screen and (max-width:730px) {
+
+    .music-container {
+        display: none; /* Hide the music container on small screens */
+    }
+
+    /*makes left image of individual posters smaller */
+    .easel-container img {
+        width: 600px;
+        height:600px;
+        top: 15%;
+        left: 20%;
+    }
+
+    .mummy-container img {
+        width: 650px;
+        height: 690px;
+        top: 15%;
+        left: 20%;
+    }
+
+    .soldier-container img {
+        width: 700px;
+        height: 720px;
+        top: 15%;
+        left: 20%;
+    }
+
+    /*make title smaller */
+    h1 {
+        font-size: 6rem;
+        letter-spacing: 0.1rem;
+        line-height: 100px; 
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .quick-link-container {
+        width: 100%;
+        height: 120vh;
+        position: absolute; 
+        bottom: -140vh; 
+    } 
+    
+}
+
+/*media query for screen width less than 430px small mobile devices */
+@media screen and (max-width:430px) {
+    /*moves quick link container further below the screen */
+    .quick-link-container {
+        width: 100%;
+        height: 150vh;
+        position: absolute; 
+        bottom: -150vh; 
+    } 
+}

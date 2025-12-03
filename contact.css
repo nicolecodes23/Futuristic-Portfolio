@@ -1,0 +1,934 @@
+/*importing google fonts for this project*/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*colors stored in variables for easy access*/
+:root {
+    --red-light:#F4C2C2;
+    --red-dark:#AB4E52;
+    --green-light:rgb(181, 201, 149);
+    --blue-light:rgb(169, 182, 199);
+    --pale-yellow: #F9CC73;
+    --purple-dark:#AC4F98;
+    --muted-blue:#61609A;
+    --magenta:#AB4F98;
+    --royal-blue:#0078FF;
+    --grey-light:#E9E9EB;
+    --pink:#F8C1BA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sets background color for the body */
+body {
+    background-color: var(--red-light);
+
+}
+
+/* Wrapper for the entire body content */
+.body-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1000; /*pushes it behind other content*/
+}
+
+/* Main container to center content vertically and horizontally */
+.main-container {
+    position: relative;
+    top: 14%;
+    left: 0;
+    display: flex;
+    flex-direction: column;/* Aligns child elements in a column */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Container for the title section */
+.title-container {
+    height: 85vh; /* Takes up 85% of the viewport height */
+    position: relative;
+    bottom: 10px;
+    width: 90%; /* 90% width of its parent */
+    display: flex;
+    flex-direction: column; /* Child elements are stacked vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    color: var(--red-dark); /* Dark red text color */
+    margin: 20px 20px 0 20px; /* Margin around the title */
+    overflow: hidden; /* Prevents content overflow */
+
+}
+
+/* Styling for the unordered list inside the title container */
+.title-container ul {
+    display: flex;
+    justify-content: center;
+    text-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 85vh;
+    flex-wrap: wrap;
+}
+
+/* List items inside the unordered list */
+.title-container ul li {
+    height: 14rem;
+    display: flex;
+    overflow: hidden;
+    align-items: center; /*center content vertically*/
+}
+
+/* Styling for the span elements inside list items */
+.title-container ul li span {
+    font-size: 15rem; /* Large font size for titles */
+    text-align: center; /* Center text */
+    font-family: 'Anton SC'; /* Custom font */
+    letter-spacing: 0.5rem; /* Space between letters */
+    line-height: 17rem; /* Line height for proper spacing */
+    margin: 15px; /* Margin around the text */
+    font-weight: bold;
+    transform: translateY(150%); /* Initial position off-screen (below) */
+    transition: transform 1s ease-out; /* Smooth transition when activated */
+    text-shadow: -1px -1px 0 #AB4E52, 1px -1px 0 #AB4E52, -1px 1px 0 #AB4E52, 1px 1px 0 #AB4E52; /* Adds a text shadow */
+}
+
+/* When the span becomes active, it slides into view */
+.title-container ul li span.active {
+    transform: translateY(0%);
+}
+
+.gap {
+    width: 4rem;
+}
+
+/* Styling for the paragraph inside the title container */
+.title-container p {
+    text-transform: lowercase;
+    font-family: 'Nunito';
+    margin: 0 10px 10px 10px;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    position: relative;
+    bottom: 10px;
+    left: 20px;
+}
+
+/*all icons to be black*/
+i {
+    color: black;
+}
+
+/* Grid container for the bento grid layout */
+.bento-grid-container {
+    width: 90%; /* Takes 90% of the parent width */
+    height: 800px; /* Fixed height of 800px */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns, each 1 fraction of the available space */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows, each 1 fraction of the available space */
+    grid-gap: 10px; /* 10px space between grid items */
+    margin: 10px; /* Margin around the grid */
+    margin-bottom: 100px; 
+}
+
+/* Individual items in the bento grid */
+.bento-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+/* Styling for content inside each bento grid item */
+.bento-content {
+    position: absolute;
+    z-index: 2;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 3px solid black;
+    box-shadow: 5px 4px 10px 5px rgb(0,0,0,0.8);
+    border-radius: 10px;
+
+}
+
+/* Override height for social items in the grid */
+.socials .bento-content {
+    height: 90%;
+}
+
+/* Styling for the email grid item */
+.email {
+    grid-column: 1/3; /* Spans two columns */
+    background-color: var(--magenta); /* Background color */
+    grid-row: 1/3; /* Spans two rows */
+}
+
+/* Specific content styling for email */
+.email .bento-content {
+    background-color: var(--magenta); 
+}
+
+/* Call grid item */
+.call {
+    grid-column: 3/4;
+    grid-row: 1/3;
+    background-color: var(--green-light);
+}
+
+/* Specific content styling for call */
+.call .bento-content {
+    background-color: var(--green-light);
+}
+
+/* Social media grid item */
+.socials {
+    grid-column: 4/5; /* Spans the 4th column */
+    grid-row: 1/4; /* Spans three rows */
+    background-color: var(--muted-blue);
+}
+
+/* Specific content styling for socials */
+.socials .bento-content {
+    background-color: var(--muted-blue);
+
+}
+
+/* Bye grid item */
+.bye {
+    background-color: var(--blue-light);
+}
+
+/* Specific content styling for bye */
+.bye .bento-content {
+    background-color: var(--blue-light);
+    grid-column: 4/5; /* Spans the 4th column */
+    grid-row: 4/5; /* Spans the last row */
+}
+
+/*styling each h3 inside each bento item*/
+h3 {
+    text-transform: uppercase;
+    font-size: 7rem;
+    text-align: center;
+    font-family: 'Anton SC';
+}
+
+.email h3 {
+    letter-spacing: 0.2rem;
+    position: absolute;
+    top: 20px;
+    color: var(--pale-yellow);
+}
+
+.socials h3 {
+    position: absolute;
+    top: 10px;
+    color: var(--pink);
+}
+
+.call h3 {
+    position: absolute;
+    top: 10px;
+    color: var(--purple-dark);
+}
+
+.bye h3 {
+    font-size: 7rem;
+}
+
+/* Styling for links inside the grid */
+.bento-grid-container a {
+    position: relative;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Link states (visited or active) */
+.bento-grid-container a:active,
+.bento-grid-container a:visited {
+    color: black; /* Text color when visited or active */
+}
+
+/* Hover and play states for the letter elements inside the links */
+.bento-grid-container a:hover .letter,
+.bento-grid-container a.play .letter {
+    transform: translateY(-150%); /* Move letters upwards */
+}
+
+/* Last block in the grid links */
+.bento-grid-container a .block:last-child {
+    position: absolute;
+    top: 30px; /* Position at the top with a margin */
+    color: black;
+}
+
+/* Base letter styling with transition */
+.bento-grid-container a .letter {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.76, 0, 0.024, 1); /* Smooth transition effect */
+}
+
+/* Staggered transition for each letter */
+.bento-grid-container .letter:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.bento-grid-container .letter:nth-child(2) {
+    transition-delay: 0.03s;
+}
+
+.bento-grid-container .letter:nth-child(3) {
+    transition-delay: 0.06s;
+}
+
+.bento-grid-container .letter:nth-child(4) {
+    transition-delay: 0.09s;
+}
+
+.bento-grid-container .letter:nth-child(5) {
+    transition-delay: 0.12s;
+}
+
+.bento-grid-container .letter:nth-child(6) {
+    transition-delay: 0.15s;
+}
+
+.bento-grid-container .letter:nth-child(7) {
+    transition-delay: 0.18s;
+}
+
+.bento-grid-container .letter:nth-child(8) {
+    transition-delay: 0.21s;
+}
+
+.bento-grid-container .letter:nth-child(9) {
+    transition-delay: 0.24s;
+}
+
+.bento-grid-container .letter:nth-child(10) {
+    transition-delay: 0.27s;
+}
+
+.bento-grid-container .letter:nth-child(11) {
+    transition-delay: 0.3s;
+}
+
+.bento-grid-container .letter:nth-child(12) {
+    transition-delay: 0.33s;
+}
+
+.bento-grid-container .letter:nth-child(13) {
+    transition-delay: 0.36s;
+}
+
+.bento-grid-container .letter:nth-child(14) {
+    transition-delay: 0.39s;
+}
+
+.bento-grid-container .letter:nth-child(15) {
+    transition-delay: 0.42s;
+}
+
+.bento-grid-container .letter:nth-child(16) {
+    transition-delay: 0.45s;
+}
+
+.bento-grid-container .letter:nth-child(17) {
+    transition-delay: 0.48s;
+}
+
+.bento-grid-container .letter:nth-child(18) {
+    transition-delay: 0.51s;
+}
+
+.bento-grid-container .letter:nth-child(19) {
+    transition-delay: 0.54s;
+}
+
+/* Styling for buttons */
+button {
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    border: 3px solid black; /* Thick black border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 4px 4px 1px 1px black; /* Box shadow for a 3D effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition on hover */
+    overflow: hidden; /* Hide overflow content */
+}
+
+/* Hover effect for buttons */
+button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 1px 1px black;
+}
+
+/* Specific button styling for the email section */
+.email button {
+    padding: 10px;
+    font-family: 'Nunito';
+    text-transform: lowercase;
+    position: absolute;
+    top: 60%;
+    font-size: 1rem;
+    background-color: var(--pale-yellow);
+}
+
+/* Social media button styling */
+.socials button {
+    position: relative;
+    top: 10%;
+    margin-top: 20px;
+    background-color: var(--muted-blue);
+}
+
+/* Call button styling */
+.call button {
+    padding: 10px;
+    font-family: 'Nunito';
+    text-transform: lowercase;
+    position: absolute;
+    top: 60%;
+    font-size: 1rem;
+    background-color: var(--purple-dark);
+    color: white;
+}
+
+/* Specific icon effects for buttons */
+.bento-content button i::after {
+    content: ''; /* Create a pseudo-element */
+    position: absolute;
+    top: 100%; /* Position it below the original icon */
+    left: 0;
+    width: 100%; /* Full width */
+    font-family: 'Boxicons', sans-serif;
+    text-align: center;
+    font-size: inherit; /* Inherit font size from parent */
+    color: inherit; /* Inherit color */
+}
+
+/* Specific classes for each social media to apply the correct icon */
+.bx.bxl-instagram-alt::after {
+    content: '\e943 ';
+    /* Unicode for the Instagram icon in Boxicons */
+}
+
+.bx.bxl-facebook-circle::after {
+    content: '\e930';
+    /* Unicode for the Facebook icon in Boxicons */
+}
+
+.bx.bxl-linkedin-square::after {
+    content: '\e94es';
+    /* Unicode for the LinkedIn icon in Boxicons */
+}
+
+.bx.bxl-youtube::after {
+    content: '\e992';
+    /* Unicode for the YouTube icon in Boxicons */
+}
+
+/* Hover effect for icons */
+.bento-content button i:hover {
+    transform: translateY(-45px);
+    transition: transform 0.5s ease;
+}
+
+/* Chatbot container inside the grid */
+.chatbot {
+    grid-column: 1/4;
+    grid-row: 3/5;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column !important;
+}
+
+.chatbot .chatbox {
+    width: 90%;
+    height: 320px;
+    overflow-y: auto; /*allow vertical scrolling*/
+    padding: 0px 20px 100px;
+}
+
+/* Styling for individual chats */
+.chatbox .chat {
+    position: relative;
+    top: 50px;
+    display: flex;
+}
+
+/* Outgoing chat styling */
+.chatbox .outgoing {
+    margin: 20px 0;
+    justify-content: flex-end;
+}
+
+/* Profile image styling in the chat */
+.chatbox .profile {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    position: relative;
+    top: 15%;
+    margin-right: 8px;
+    align-self: flex-end;
+}
+
+/* Message bubble styling */
+.chatbox .chat p {
+    white-space: pre-wrap;
+    max-width: 75%;
+    color: white;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: 17px;
+    background-color: var(--royal-blue);
+}
+
+/* Styling for incoming chat bubbles */
+.chatbox .incoming p {
+    color: black;
+    background-color: var(--grey-light);
+    border-radius: 18px;
+    justify-content: flex-start;
+}
+
+/* Chat input area styling */
+.chatbot .chat-input {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px 15px;
+    width: 95%;
+    display: flex;
+}
+
+
+/* Textarea for the chat input */
+.chat-input textarea {
+    width: 100%;
+    border: 3px solid lightgray;
+    font-size: 0.95rem;
+    resize: none; /* Prevents resizing */
+    padding: 16px 15px 16px 16px;
+    max-height: 180px;
+    border-radius: 24px; /* Rounded corners */
+}
+
+/* Send button styling, hidden unless valid input is entered */
+.chat-input textarea:valid:not(:placeholder-shown)~i {
+    visibility: visible;
+}
+
+.send {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    font-size: 3rem;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    text-align: center;
+    visibility: hidden;
+}
+
+/* Hover effect for the send button */
+.send:hover {
+    color: var(--royal-blue);
+}
+
+/*reponsive layout for table devices*/
+@media screen and (max-width:1024px) {
+
+    /*smaller title*/
+    .title-container {
+        height: 55vh;
+    }
+    
+    .title-container ul {
+        width: 100%;
+        height: 35vh;
+        flex-wrap: wrap;
+    }
+    
+    
+    .title-container ul li {
+        height: 11rem;
+    }
+    
+    .title-container ul li span {
+        font-size: 11rem;
+        letter-spacing: 0.3rem;
+    }
+    
+    .gap {
+        width: 2rem;
+    }
+    
+    .title-container p {
+        margin: 0 10px 10px 10px;
+        font-size: 1.6rem;
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+    
+    }
+
+    /* Adjustments for the grid layout at smaller screen sizes */
+    .bento-grid-container {
+        width: 90%;
+        height:200vh;
+        display: grid;
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: repeat(29, 1fr); /* More rows for content */
+        margin: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    
+    /* Email section spans more rows in smaller screens */
+    .email {
+        grid-column: 1/2;
+        grid-row: 1/5;
+    }
+
+    /* Call section spans multiple rows */
+    .call {
+        grid-column: 1/2;
+        grid-row: 5/10;
+    }
+
+    /* Social media spans more rows */
+    .socials {
+        grid-column: 1/2;
+        grid-row: 10/20;
+    }
+
+    .bye {
+            grid-column: 1/2;
+            grid-row: 26/29;
+    }
+
+    /* Chatbot adjustment for smaller screens */
+    .chatbot {
+        grid-column: 1/2;
+        grid-row: 20/26;
+    }
+    
+    .chatbot .chatbox {
+        position: relative;
+        bottom: 10px;
+        height: 260px;
+    }
+    
+    .chatbox .chat {
+        position: relative;
+        top: 50px;
+        display: flex;
+    }
+    
+    .chatbox .outgoing {
+        margin: 20px 0;
+        justify-content: flex-end;
+    }
+    
+    .chatbox .profile {
+        width: 42px;
+        height: 42px;
+        margin-right: 8px;
+        justify-content: flex-start;
+    }
+
+    
+    .chatbox .chat p {
+        font-size: 1rem;
+    }
+    
+    .chatbox .incoming p {
+        justify-content: flex-start;
+    }
+    
+    .chat-input textarea {
+        font-size: 1rem;
+        max-height: 160px;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 10rem;
+        text-align: center;
+        font-family: 'Anton SC';
+    }
+    
+    .email h3 {
+        top: -6px;
+        font-size: 9rem;
+    }
+
+    /* Adjustments for buttons */
+    .email button {
+        position: absolute;
+        top: 70%;
+        font-size: 1rem;
+    }
+
+    .call button {
+        position: absolute;
+        top: 70%;
+    }
+
+    .socials button {
+        font-size: 4rem;
+        position: relative;
+        top: 15%;
+        margin-top: 20px;
+    }
+
+    .socials h3 {
+        position: absolute;
+        top: 10px;
+        font-size: 12rem;
+    }
+    
+    .call h3 {
+        position: absolute;
+        top: 10px;
+        font-size: 10rem;
+    }
+    
+
+}
+
+/*responsive layout for mobile devices*/
+@media screen and (max-width:730px) {
+
+    .title-container {
+        height: 85vh;
+        position: relative;
+        margin: 10px 10px 0 10px;
+    }
+    
+    .title-container ul {
+        width: 100%;
+        height: 35vh;
+        flex-wrap: wrap;
+    }
+    
+    
+    .title-container ul li {
+        height: 5rem;
+    }
+    
+    .title-container ul li span {
+        font-size: 5rem;
+        letter-spacing: 0.3rem;
+        line-height: 5rem;
+        margin: 15px;
+        font-weight: bold;
+        transform: translateY(150%);
+        transition: transform 1s ease-out;
+        text-shadow:
+            -1px -1px 0 #AB4E52,
+            1px -1px 0 #AB4E52,
+            -1px 1px 0 #AB4E52,
+            1px 1px 0 #AB4E52;
+        ;
+    }
+    
+    .title-container ul li span.active {
+        transform: translateY(0%);
+    }
+    
+    .gap {
+        width: 1rem;
+    }
+    
+    .title-container p {
+        margin: 0 10px 10px 10px;
+        font-size: 1.1rem;
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+    
+    }
+
+    .bento-grid-container {
+        width: 90%;
+        height:200vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(29, 1fr);
+        margin: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+        
+    .email {
+        grid-column: 1/2;
+        grid-row: 1/5;
+    }
+    
+    .call {
+        grid-column: 1/2;
+        grid-row: 5/10;
+    }
+
+    .socials {
+        grid-column: 1/2;
+        grid-row: 10/20;
+    }
+
+    .bye {
+            grid-column: 1/2;
+            grid-row: 26/29;
+    }
+
+    .chatbot {
+        grid-column: 1/2;
+        grid-row: 20/26;
+    }
+    
+    .chatbot .chatbox {
+        position: relative;
+        bottom: 10px;
+        height: 260px;
+    }
+    
+    .chatbox .chat {
+        position: relative;
+        top: 50px;
+        display: flex;
+    }
+    
+    .chatbox .outgoing {
+        margin: 20px 0;
+        justify-content: flex-end;
+    }
+    
+    .chatbox .profile {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+        justify-content: flex-start;
+    }
+
+    
+    .chatbox .chat p {
+        font-size: 0.85rem;
+    }
+    
+    .chatbox .incoming p {
+        color: black;
+        background-color: var(--grey-light);
+        border-radius: 18px;
+        justify-content: flex-start;
+    }
+    
+    .chat-input textarea {
+        font-size: 0.85rem;
+        max-height: 160px;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 5.5rem;
+        text-align: center;
+        font-family: 'Anton SC';
+    }
+    
+    .email h3 {
+        top: -5px;
+        font-size: 6rem;
+    }
+    
+    .socials h3 {
+        position: absolute;
+        top: 10px;
+        font-size: 7rem;
+    }
+    
+    .call h3 {
+        position: absolute;
+        top: 10px;
+        font-size: 6rem;
+    }
+    
+    .socials button {
+        font-size: 3rem;
+    }
+
+}
+
+/* Responsive layout for screens smaller than 400px */
+@media screen and (max-width:400px) {
+    .chatbot .chatbox {
+        width: 90%;
+        height: 200px;
+        overflow-y: auto;
+        padding: 0px 20px 100px;
+    }
+
+    .email h3 {
+        top: -5px;
+        font-size: 4rem;
+    }
+    
+    .socials h3 {
+        position: absolute;
+        top: 10px;
+        font-size: 4rem;
+    }
+    
+    .call h3 {
+        position: absolute;
+        top: 10px;
+        font-size: 4rem;
+    }
+    
+    .socials button {
+        position: relative;
+        top: 7%;
+        font-size: 2.5rem;
+    }
+
+    .bye h3 {
+        font-size: 4rem;
+    }
+
+
+    .email button {
+        padding: 7px;
+        position: absolute;
+        top: 60%;
+        font-size: 0.8rem;
+    }
+
+    .socials button {
+        position: relative;
+        top: 10%;
+        margin-top: 20px;
+    }
+
+    .call button {
+        padding: 7px;
+        position: absolute;
+        top: 60%;
+    }
+    
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--webpage title icon-->
+    <link rel="icon" type="image/x-icon" href="images/web-icon.png">
+    <!--navbar css found in components folder-->
+    <link rel="stylesheet" href="./components/navbar.css">
+    <!--specific avatar design found in componenets folder-->
+    <link rel="stylesheet" href="./components/renaissance-avatar.css">
+    <link rel="stylesheet" href="./components/mummy-avatar.css">
+    <link rel="stylesheet" href="./chinese-avatar.css">
+    <!--main css file for homepage-->
+    <link rel="stylesheet" href="index.css">
+    <title>Portfolio Homepage</title>
+</head>
+
+<body>
+    <!--html header including music and navbar-->
+    <header>
+        <div class="music-container">
+            <!--icon for speaker default on mute-->
+            <i class='bx bxs-volume-mute'></i>
+            <!--mp3 source in images folder, credits to pixabay Monuments_Music-->
+            <audio src="images/music.mp3" id="bgMusic"></audio>
+        </div>
+        <!--navigation bar-->
+        <nav class="tabs-container">
+            <div class="tab"><a href="about.html"><i class='bx bx-info-circle'></i><span>About</span></a></div>
+            <div class="tab"><a href="new.html"><i class='bx bx-news'></i><span>Updates</span></a></div>
+            <div class="tab" id="Homepage"><a href="index.html"><i class='bx bx-home'></i><span>NICOLE</span></a></div>
+            <div class="tab"><a href="projects.html"><i class='bx bx-folder-open'></i><span>projects</span></a></div>
+            <div class="tab"><a href="contact.html"><i class='bx bx-envelope'></i><span>Contact</span></a></div>
+            <div class="cursor"></div>
+        </nav>
+    </header>
+    <!--main container containing all the posters-->
+    <div class="main-container">
+        <div class="poster-container">
+            <!--first poster renaissance poster-->
+            <div class="first-poster poster active">
+                <!--renaissance title-->
+                <div class="introduction">
+                    <h1>Time Travel Tour Guide</h1>
+                </div>
+                <!--building renaissance-avatar using pure css-->
+                <div class="renaissance-avatar-container">
+                    <div class="renaissance-avatar">
+                        <div class="face">
+                            <div class="brow brow-left"></div>
+                            <div class="brow brow-right"></div>
+                            <div class="eye eye-left"></div>
+                            <div class="eye eye-right"></div>
+                            <div class="lips"></div>
+                            <div class="blush blush-left"></div>
+                            <div class="blush blush-right"></div>
+                        </div>
+                        <div class="ears ear-left"></div>
+                        <div class="ears ear-right"></div>
+                        <div class="hair"></div>
+                        <div class="bangs bangs-left"></div>
+                        <div class="bangs bangs-right"></div>
+                        <div class="hairband"></div>
+                        <div class="neck"></div>
+                        <div class="body"></div>
+                        <div class="shirt shirt-left"></div>
+                        <div class="shirt shirt-right"></div>
+                        <div class="dress"></div>
+                    </div>
+                </div>
+                <!--painting frame using pure css-->
+                <div class="painting-container">
+                    <div class="img-container">
+                        <img src="./images/first-poster.jpg" alt="renaissance-poster of monet painting">
+                    </div>
+                    <div class="painting-frame"></div>
+                </div>
+                <!--poster big image on the left-->
+                <div class="easel-container">
+                    <img src="./images/easel.png" alt="easel with mona lisa picture">
+                </div>
+            </div>
+            <!--second poster chinese poster-->
+            <div class="second-poster poster">
+                <!--second poster title-->
+                <div class="introduction">
+                    <h1>travel like never before</h1>
+                </div>
+                <!--building chinese avatar using pure css-->
+                <div class="chinese-avatar-container">
+                    <div class="chinese-avatar">
+                        <div class="face">
+                            <div class="brow brow-left"></div>
+                            <div class="brow brow-right"></div>
+                            <div class="eye eye-left"></div>
+                            <div class="eye eye-right"></div>
+                            <div class="lips"></div>
+                            <div class="blush blush-left"></div>
+                            <div class="blush blush-right"></div>
+                        </div>
+                        <div class="ears ear-left"></div>
+                        <div class="ears ear-right"></div>
+                        <div class="earrings earrings-left"></div>
+                        <div class="earrings earrings-right"></div>
+                        <div class="earrings2 earrings2-left"></div>
+                        <div class="earrings2 earrings2-right"></div>
+                        <div class="hair"></div>
+                        <div class="hairband"></div>
+                        <div class="bangs bangs-left"></div>
+                        <div class="bangs bangs-right"></div>
+                        <div class="neck"></div>
+                        <div class="body"></div>
+                        <div class="shirt shirt-left"></div>
+                        <div class="shirt shirt-right"></div>
+                        <div class="dress"></div>
+                    </div>
+                </div>
+                <!--painting frame using css-->
+                <div class="painting-container">
+                    <div class="img-container">
+                        <img src="./images/second-poster.jpg" alt="poster of great wall of china">
+                    </div>
+                    <div class="painting-frame"></div>
+                </div>
+                <!--posters big image on the left-->
+                <div class="soldier-container">
+                    <img src="./images/soldiers.png" alt="terracota soldiers">
+                </div>
+            </div>
+            <!--third poster egyptian poster-->
+            <div class="third-poster poster">
+                <!--third-poster title-->
+                <div class="introduction">
+                    <h1>Live & Learn in the past</h1>
+                </div>
+                <!--building mummy avatar using pure css-->
+                <div class="mummy-avatar-container">
+                    <div class="mummy-avatar">
+                        <div class="wrap head-wrap"></div>
+                        <div class="face">
+                            <div class="brow brow-left"></div>
+                            <div class="brow brow-right"></div>
+                            <div class="eye eye-left"></div>
+                            <div class="eye eye-right"></div>
+                        </div>
+                        <div class="wrap face-wrap"></div>
+                        <div class="ears ear-left"></div>
+                        <div class="ears ear-right"></div>
+                        <div class="neck"></div>
+                        <div class="body"></div>
+                        <div class="wrap body-wrap"></div>
+                    </div>
+                </div>
+                <!--building painting frame using pure css-->
+                <div class="painting-container">
+                    <div class="img-container">
+                        <img src="./images/third-poster.jpg" alt="poster of egyptian scenery">
+                    </div>
+                    <div class="painting-frame"></div>
+                </div>
+                <!--poster big image on the left-->
+                <div class="mummy-container">
+                    <img src="./images/mummy.png" alt="mummy tomb">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container for storing links -->
+    <div class="quick-link-container">
+        <section class="link-container">
+            <!--link title-->
+            <h3>Features</h3>
+            <div class="link-wrapper">
+                <a class="link" href="about.html" data-heading="About" data-subheading="Learn what I do here"
+                    data-imgsrc="images/about.png"></a>
+                <a class="link" href="contact.html" data-heading="Contact"
+                    data-subheading="This is the beginning of our journey" data-imgsrc="images/contact.png"></a>
+                <a class="link" href="projects.html" data-heading="Portfolio"
+                    data-subheading="Our work speaks for itself" data-imgsrc="images/showcase.png"></a>
+                <a class="link" href="new.html" data-heading="Updates" data-subheading="Something happening soon"
+                    data-imgsrc="images/soon.png"></a>
+                <!--special link to access report for finals-->
+                <a class="link" href="index.html" data-heading="Report" data-subheading="How this website was made"
+                    data-imgsrc="images/report.png"></a>
+            </div>
+        </section>
+    </div>
+    <script src="./components/navbar.js"></script>
+    <script src="./components/avatar.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

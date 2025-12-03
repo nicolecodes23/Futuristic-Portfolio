@@ -1,0 +1,414 @@
+/*importing google fonts for this project*/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*colors stored in variables for easy access*/
+:root {
+    --brown-light:#EFDECD;
+    --brown-dark:#9F8170;
+    --red-light:#F4C2C2;
+    --red-dark:#AB4E52;
+    --purple-light:#FFC9ED;
+    --neon-green:#B0FB90;
+    --pale-yellow: #F9CC73;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling: sets the background color and ensures the body covers 1000 viewport heights */
+body {
+    width: 100vw;
+    height: 1000vh;
+    background-color:var(--brown-light);
+}
+
+/* Main container that holds title and secret text, with a flexible height */
+.main-container {
+    width: 100%;
+    height: auto;
+}
+
+/* Title container: spans the full viewport height, centers content, and adds transition animation */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -110px;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Anton SC';
+    transition: transform 1s ease;
+    text-align: center;
+    color: var(--brown-dark);
+}
+
+/* Unordered list container: centers and wraps list items with spacing between them */
+ul {
+    display: flex;
+    justify-content: center;
+    text-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    width: 70%;
+    height: 50%;
+    flex-wrap: wrap;
+}
+
+ul li {
+    height: 12rem;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+
+/* Span inside list items: text with large font size that slides in from below (600%) */
+ul li span {
+    display: block;
+    line-height: 2rem;
+    font-size: 12rem;
+    text-transform: uppercase;
+    margin: 0.05rem;
+    transform: translateY(600%);
+    transition: transform 1s ease-out;
+}
+
+/* Active state for span: moves the text into view */
+ul li span.active {
+    transform: translateY(0%);
+}
+
+/* Gap: a utility class for spacing */
+.gap {
+    width: 2rem;
+}
+
+/* Container for hidden text: full width with padding */
+.secret-text-container {
+    padding: 3rem 2rem;
+    width: 100%;
+}
+
+/* Paragraph inside the secret text container: responsive font size using clamp */
+.secret-text-container p {
+    font-family: 'Nunito';
+    font-weight: 700;
+    margin-bottom: 4rem;
+    font-size: clamp(30px, 10vw, 60px);
+    padding: 0 5%;
+    color: var(--red-dark);
+}
+
+.secret-text-container img {
+    width: 100px;
+    height:100px;
+}
+
+/* Span inside secret text: adds a subtle, low-opacity text effect */
+.secret-text-container span {
+    opacity: 0.1;
+}
+
+/* Adds a large bottom margin on last paragraph to create extra space for elements */
+#bottom {
+    margin-bottom: 55vh;
+}
+
+/* Main container for the content: spans full width and height with a margin at the bottom */
+main {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 70px;
+}
+
+/* Styling for h3 inside main: positioned absolutely at the bottom-right corner */
+main h3 {
+    color: var(--pale-yellow);
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+}
+
+/* Scrollable content: set up for optimized scrolling performance */
+.scrollable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform;
+}
+
+/* Sections inside main: centered vertically and horizontally with padding at the top */
+main section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 70px;
+    min-height: 50vh;
+}
+
+/* Sticky title that stays in place when scrolling: uses a large font and neon green color */
+.fixed-title {
+    text-transform: lowercase;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+    padding: 10px;
+    z-index: 100;
+    font-size: 4rem;
+    font-family: 'Nunito';
+    color: var(--neon-green);
+}
+
+/*short height for first section to prevent too much white space*/
+main section:nth-child(1) {
+    height: 1vh !important;
+    min-height: 1vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scroll container: grid layout with 12 columns and 10px gaps between items */
+.scroll-container{
+    position: relative;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    gap: 10px;
+}
+
+/* Image wrapper: makes sure images fit and overflow is hidden */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* The first image wrapper spans 3 columns in the grid */
+.image-wrapper:nth-child(1) {
+    grid-column: span 3;
+}
+
+/* The second image wrapper spans 7 columns starting from column 6, placed in the second row */
+.image-wrapper:nth-child(2) {
+    grid-column: 6 /span 7;
+    grid-row: 2;
+}
+
+/* The third image wrapper spans 6 columns starting from column 3, placed in the third row */
+.image-wrapper:nth-child(3) {
+    grid-column: 3/span 6;
+    grid-row: 3;
+}
+
+/* Second grid layout: first image spans 6 columns */
+.second .image-wrapper:nth-child(1) {
+    grid-column: span 6;
+}
+
+/* Second grid layout: second image spans 6 columns starting at column 9, placed in the second row */
+.second .image-wrapper:nth-child(2) {
+    grid-column: 9/ span 6;
+    grid-row: 2;
+}
+
+/* Second grid layout: third image spans 8 columns starting at column 2, placed in the third row */
+.second .image-wrapper:nth-child(3) {
+    grid-column: 2/span 8;
+    grid-row: 3;
+}
+
+/* Styles for images and videos inside the image wrapper: cover the space, centered, with a polygonal clip-path */
+.image-wrapper img,
+.image-wrapper video  {
+    width: 100%;
+    height: 140%;
+    object-fit: cover;
+    object-position: center;
+    top: -20%;
+    clip-path: polygon(40% 40%, 60% 40%, 60% 60%, 40% 60%);
+    will-change: transform, clip-path;
+}
+  
+/* Container for hint elements: full width and height */
+  .hint-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  /* Polaroid-style image: small square image with a white background, box shadow, and smooth transition effects */
+  .polaroid {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    transition: transform 1s ease-out;
+    will-change: transform; /* To optimize performance */
+  }
+  
+  /* Ensures the image inside the polaroid fits fully within the frame */
+  .polaroid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Hint heading: large centered text */
+  .hint-container h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 6rem;
+    font-family: 'Anton SC';
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--brown-dark);
+    width: 65%;
+}
+
+/* Hint paragraph: smaller text centered below the heading */
+.hint-container p {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2rem;
+    text-align: center;
+    color: var(--brown-dark);
+    width: 65%;
+    font-family: 'Nunito';
+    font-weight: 600;
+}
+
+/*responsive layout for tablet devices*/
+@media screen and (max-width: 1024px){
+    /* Reduces the size of list items and spans for smaller screens */
+    ul li {
+        height: 10rem;
+    }
+    
+    ul li span {
+        display: block;
+        font-size: 10rem;
+    }
+
+    .secret-text-container img {
+        width: 70px;
+        height:70px;
+    }
+
+}
+
+@media screen and (max-width:730px) {
+    body {
+        width: 100%;
+    }
+
+    ul {
+        height: 30%;
+    }
+
+    ul li {
+        height: 5rem;
+    }
+    
+    ul li span {
+        display: block;
+        font-size: 5rem;
+    }
+
+    .secret-text-container p {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .fixed-title {
+        font-size: 2rem;
+    }
+
+    .polaroid {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hint-container h2 {
+        font-size: 4rem;       
+        width: 100%;
+    }
+    
+    .hint-container p {
+        font-size: 1.5rem;
+        width: 65%;
+    }
+
+/* Adjusts the layout and font sizes for screens smaller than 730px, including changing grid layout to one column */
+    .scroll-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: 10px;
+    }
+
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+/*all images now aligned in 1 column only*/
+.image-wrapper:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.image-wrapper:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.image-wrapper:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.second .image-wrapper:nth-child(1) {
+    grid-column: 1;
+}
+
+.second .image-wrapper:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.second .image-wrapper:nth-child(3) {
+    grid-column:1;
+    grid-row: 3;
+}
+
+.secret-text-container img {
+    width: 40px;
+    height:40px;
+}
+
+}

@@ -1,0 +1,527 @@
+/*importing google fonts for this project*/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*colors stored in variables for easy access*/
+:root {
+    --brown-light:#EFDECD;
+    --brown-dark:#9F8170;
+    --red-light:#F4C2C2;
+    --red-dark:#AB4E52;
+    --blue-dark:#002753;
+    --blue-light:#7EB9FD;
+    --purple-light:#FFC9ED;
+    --green-dark:#023312;
+}
+
+/* Basic reset for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with a smooth background-color transition */
+body {
+    height: 100vh;
+    transition: background-color 0.2s ease;
+    background-color: var(--brown-light);
+}
+
+/* Main container with extended height for scrolling */
+.main-container {
+    height: 500vh;
+}
+
+/* About us section styling */
+.about-us-container {
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+}
+
+/* About us title styling */
+.about-us-container h4 {
+    font-size: 1.3rem;
+    font-family: 'Nunito';
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--brown-dark);
+    position: absolute;
+    top: 5%;
+}
+
+/* About us large header */
+.about-us-container h2 {
+    font-size: 8rem;
+    text-transform: uppercase;
+    font-family: 'Anton SC';
+    letter-spacing: 3px;
+    width: 70%;
+    text-align: center;
+    line-height: 132px;
+    color: var(--brown-dark);
+    position: absolute;
+    top: 9%;
+    z-index: 1;
+}
+
+/* Styling for the Renaissance avatar (centered within the section) */
+.renaissance-avatar-container.centered {
+    position: relative;
+    top: 30%;
+    left: 7%;
+    transform: translate(-35%, -90%);
+    z-index: 2;
+}
+
+/* Paragraph styling within the about us section */
+.about-us-container p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 68%;
+    position: relative;
+    top: 130px;
+    text-align: center;
+    font-family: 'Nunito';
+    margin-top: 20px;
+    line-height: 30px;
+    color: var(--brown-dark);
+}
+
+/* History section styling */
+.history-container {
+    height: 160vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* Scrollable container */
+.scroll-container {
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Scroll container title styling */
+.scroll-container .scroll-title {
+    font-family: 'Anton SC';
+    text-transform: uppercase;
+    font-size: 7rem;
+    transition: all 0.1s ease-in-out;
+    color: var(--red-dark);
+}
+
+/* Text container styling within the scroll section */
+.text-container {
+    font-family: 'Anton SC';
+    transition: transform 1s ease;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--red-dark);
+}
+
+/* Styling for unordered list elements */
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* List item styling */
+ul li {
+    height: 7rem;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+
+/* Span inside list items */
+ul li span {
+    display: block;
+    line-height: 4rem;
+    font-size: 8rem;
+    text-transform: uppercase;
+    margin: 0.05rem;
+    transform: translateY(200%);
+    transition: transform 1s ease-out;
+}
+
+/* Active span with animation */
+ul li span.active {
+    transform: translateY(0%);
+}
+
+.gap {
+    width: 1rem;
+}
+
+/*sticky parent with large height for scrolling*/
+.sticky-parent-container {
+    height: 450vh;
+}
+
+/* Sticky section that remains fixed while scrolling */
+.sticky {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+/* Horizontal scroll section for cards */
+.scroll-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /*width same as container height for scrolling*/
+    width: 450vw;
+    will-change: transform;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55vw;
+}
+
+/* Scroll card layout, each card is one viewport wide */
+.scroll-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Image inside scroll cards */
+.scroll-card img {
+    position: absolute;
+    top: 25%;
+    width: 400px;
+    margin-bottom: 10px;
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+/* Specific image sizes for elements with specific IDs */
+#quantum {
+    width: 200px;
+}
+
+#wormhole,
+#adventure {
+    width: 400px;
+}
+
+#lock {
+    width: 350px;
+}
+
+/* Keyframes for bounce animation used for image in scroll cards */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Large header inside scroll cards */
+.scroll-card h1 {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    font-size: 27rem;
+    font-weight: 900;
+    z-index: 1;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Different color styling for each scroll card based on their order */
+.scroll-card:nth-child(1) h1 {
+    color: var(--blue-dark);
+}
+
+.scroll-card:nth-child(2) h1 {
+    color: var(--blue-light);
+}
+
+.scroll-card:nth-child(3) h1 {
+    color: var(--purple-light);
+}
+
+.scroll-card:nth-child(4) h1 {
+    color: var(--green-dark);
+}
+
+.scroll-card:nth-child(5) h1 {
+    color: var(--red-dark);
+}
+
+/* Paragraph styling inside scroll cards */
+.scroll-card p {
+    position: relative;
+    font-family: 'Nunito';
+    font-weight: 800;
+    top: 0px;
+    left: 20px;
+    font-size: 1.3rem;
+    color: #333;
+    z-index: 2;
+    width: 700px;
+}
+
+/* Different color styling for paragraphs in each scroll card */
+.scroll-card:nth-child(1) p {
+    color: var(--blue-dark);
+}
+
+.scroll-card:nth-child(2) p {
+    color: var(--blue-light);
+}
+
+.scroll-card:nth-child(3) p {
+    color: var(--purple-light);
+}
+
+.scroll-card:nth-child(4) p {
+    color: var(--green-dark);
+}
+
+.scroll-card:nth-child(5) p {
+    color: var(--red-dark);
+}
+
+/*media query for tablet devices*/
+@media screen and (max-width:1024px) {
+
+    .main-container {
+        height: 400vh;
+    }
+
+    .about-us-container {
+        height: 100vh;
+
+    }
+
+    .about-us-container h2 {
+        font-size: 6rem;
+        width: 650px;
+        line-height: 100px;
+        position: absolute;
+        top: 9%;
+    }    
+
+    .renaissance-avatar-container.centered {
+        position: relative;
+        top: 10%;
+        left: 9%;
+        transform: translate(-35%, 0%);
+        z-index: 2;
+    }
+    
+    .about-us-container p {
+        font-size: 1.3rem;
+        width: 68%;
+        position: relative;
+        top: 0%;
+        transform: translateY( 70%);
+        margin-top: 20px;
+        line-height: 24px;
+    }
+
+    .history-container {
+        height: 80vh;
+    }
+    
+    .scroll-container {
+        height: 80vh;
+    }
+
+    .scroll-container .scroll-title {
+        font-size: 5rem;
+    }
+
+    ul li {
+        height: 6rem;
+    }
+ 
+    ul li span {
+        line-height: 2rem;
+        font-size: 6.3rem;
+    }
+
+    .scroll-card img {
+        position: absolute;
+        top: 30%;
+        width: 300px;
+    }
+    
+    #quantum {
+        width: 150px;
+    }
+    
+    #wormhole,
+    #adventure {
+        width: 330px;
+    }
+    
+    #lock {
+        width: 280px;
+    }
+
+    .scroll-card h1 {
+        position: relative;
+        top: -10%;
+        left: 0%;
+        font-size: 22rem;
+    }
+    .scroll-card {
+        padding: 0 10px;
+    }
+
+
+}
+
+/*media query for mobile devices*/
+@media screen and (max-width:760px) {
+
+    .about-us-container {
+        height: 120vh;
+    }
+
+    .about-us-container h4 {
+        font-size: 1.2rem;
+    }
+
+    .about-us-container h2 {
+        font-size: 3rem;
+        width:400px;
+        line-height: 50px;
+        position: absolute;
+        top: 9%;
+    }    
+
+    .renaissance-avatar-container.centered {
+        position: relative;
+        top: 10%;
+        left: 17%;
+        transform: translate(-30%, 0%);
+        z-index: 2;
+    }
+    
+    .about-us-container p {
+        font-size: 1.2rem;
+        width: 300px;
+        position: relative;
+        top: 0%;
+        transform: translateY( 70%);
+        margin-top: 20px;
+        line-height: 24px;
+    }
+
+    .history-container {
+        height: 80vh;
+    }
+    
+    .scroll-container {
+        height: 80vh;
+    }
+
+    .scroll-container .scroll-title {
+        font-size: 4rem;
+    }
+
+    ul li {
+        height: 4rem;
+    }
+ 
+    ul li span {
+        line-height: 1rem;
+        font-size: 4rem;
+    }
+
+
+ .sticky-parent-container {
+    height: 550vh;
+    }
+
+
+ .scroll-section {
+    width: 550vw;
+    }   
+
+    .scroll-card img {
+        position: absolute;
+        top: 30%;
+        width: 300px;
+    }
+    
+    #quantum {
+        top: 40%;
+        width: 100px;
+    }
+    
+    #wormhole,
+    #adventure {
+        top: 35%;
+        width: 230px;
+    }
+    
+    #lock {
+        top: 35%;
+        width: 180px;
+    }
+
+    .scroll-card h1 {
+        position: relative;
+        top: -10%;
+        left: 0%;
+        font-size: 12rem;
+    }
+    .scroll-card {
+        padding: 0 10px;
+    }
+
+    .scroll-card p {
+        position: relative;
+        top: 90px;
+        left: 20px;
+        font-size: 1.1rem;
+        width: 80%;
+    }
+
+}

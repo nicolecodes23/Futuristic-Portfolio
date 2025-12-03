@@ -1,0 +1,380 @@
+/*importing google fonts for this project*/
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*colors stored in variables for easy access*/
+:root {
+    --brown-light:#EFDECD;
+    --brown-dark:#9F8170;
+    --red-light:#F4C2C2;
+    --red-dark:#AB4E52;
+    --blue-dark:#002753;
+    --blue-light:#7EB9FD;
+    --purple-light:#FFC9ED;
+    --green-dark:#023312;
+    --wheat:#F4F0ED;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set body background color and disable overscroll behavior */
+body {
+    background-color: var(--brown-light);
+    overscroll-behavior: none;
+}
+
+/* Set default margin for paragraphs */
+p {
+    margin: 0.5rem;
+}
+
+/* Container for the title, center-aligning its content */
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Styling for the main title (h1) within the title container */
+.title-container h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    line-height: 20vw;
+    display: flex;
+    color: var(--brown-dark);
+}
+
+/* Individual spans inside the h1 title, with text size and transformation */
+.title-container h1 span {
+    font-size: 25vw;
+    text-align: center;
+    font-family: 'Anton SC';
+    text-transform: uppercase;
+    transform: translateY(350%);
+}
+
+/* Animation for active span: moving it into view */
+.title-container h1 span.active {
+    transform: translateY(0%);
+    transition: 1s ease-out;
+}
+
+/* Fixed header for displaying, blending with the background */
+.header {
+    position: fixed;
+    z-index: 3;
+    mix-blend-mode: difference;
+    left: 5vw;
+    top: 5vh;
+}
+
+/* Main container initially hidden, set to take full screen */
+main {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+/* Initially hide the individual items within the main container */
+main .item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* When the item is shown, it becomes visible and slides into view */
+main .item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Display main content when projects are visible */
+.show-projects main {
+    display: block;
+}
+
+
+/* Project container, set to be larger than the screen for mouse moving/lerping experience */
+.project-container {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    left: -25%;
+    top: -25%;
+    transform-origin: center;
+    padding: 5rem;
+    display: flex;
+    will-change: transform;
+    cursor: grab;
+
+}
+
+/* Column layout for organizing items inside the project container */
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Specific spacing for the second column to create a circle-like map*/
+.column:nth-child(2) {
+    justify-content: space-between;
+}
+
+/* Adjust the alignment and gap for the first column */
+.column:nth-child(1) {
+    justify-content: flex-end;
+    gap: 5%;
+}
+
+/* Adjust the alignment and gap for the third column */
+.column:nth-child(3) {
+    justify-content: flex-end;
+    gap:5%;
+}
+
+/* Individual project items inside columns, center-aligned */
+.item {
+    position: relative;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Different size specifications for different items */
+.item:nth-child(1){
+    width: 22vw;
+    height: 30vh;
+}
+
+.item:nth-child(2){
+    width: 30vw;
+    height:35vh;
+}
+
+.item:nth-child(3){
+    width: 19vw;
+    height: 37vh;
+}
+
+/* Image styling inside each item, cover the entire item */
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Content section, initially hidden with zero opacity */
+.content {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    min-height: 100vh;
+    pointer-events: none;
+    transition: 0.5s;
+    background-color: var(--wheat);
+    z-index: 1;
+    color: black;
+}
+
+/* When the content is active, make it visible and interactive */
+.content.active {
+    opacity: 1;
+    pointer-events: all;
+    min-height: 150vh;
+}
+
+/* Image inside the content section */
+.content-img {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1rem;
+}
+
+/* Information container inside the content section */
+.info-container {
+    position: relative;
+    width: 90%;
+    height: fit-content;
+    padding: 2rem 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+
+/* Styling for headers within the information container */
+.info-header {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Text section inside the information container */
+.info-text {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+/* Showcase marquee section inside the information container */
+.info-showcase {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styling for headers inside the info showcase */
+.info-showcase h3 {
+    color: white;
+    margin-top: 7%;
+    padding: 1rem;
+    font-size: 2.2rem;
+}
+
+/* Close button inside content, styled as a button */
+.close {
+    border: none;
+    border-radius: 5px;
+    width: max(100px,10%);
+    height: fit-content;
+    margin-left: 10px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--brown-dark);
+    color: white;
+    font-size: 15px;
+}
+
+/* Close button hover effect */
+.close:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+/* Slider container, applies mask for smooth scrolling effect */
+.slider {
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
+    margin-bottom: 50px;
+}
+
+/* List inside the slider, holds individual sliding items */
+.slider .list {
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+/* Individual skill/item inside the slider, positioned for animation */
+.slider .list .skill {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 35s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc((35s / var(--quantity)) * (var(--position) - 1) - 35s) !important;
+}
+
+.slider .list .skill img {
+    width: 100%;
+}
+
+
+/*moves slider from right to left */
+@keyframes autoRun {
+    from {
+        /*start at left*/
+        left: 100%;
+    }
+    to {
+        /*move leftwards untol the reach left side of screen*/
+        left: calc(var(--width) * -1);
+    }
+}
+
+.slider:hover .skill {
+    animation-play-state: paused !important;
+    filter: grayscale(1);
+}
+
+/*when hovered, other images turn grey*/
+.slider .skill:hover {
+    filter: grayscale(0);
+}
+
+.slider[reverse="true"] .skill {
+    animation: reversePlay 35s linear infinite;
+}
+
+/*runs from left to right*/
+@keyframes reversePlay {
+    from {
+        left: calc(var(--width) * -1);
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .title-container h1 span {
+        font-size: 23vw;
+    }
+
+    .content-img {
+        width: 100%;
+        height: 100%;
+    }
+    
+}
